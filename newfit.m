@@ -124,7 +124,7 @@ disp('Reading data files')
 
 % File path of input data
 
-caminho1 = 'E:\totais\doutorado';
+caminho1 = 'E:\totais\txts_smps\saidas\OUTPUT';
 
 % File path of output data (same as input in this case)
 
@@ -132,7 +132,7 @@ caminho2 = caminho1;
 
 % File name
 
-nome = 'fspcolumns_mergedfsp.csv';
+nome = 'columns_merged429.4.csv';
 
 % Full file path
 
@@ -306,9 +306,9 @@ end
 
 clear aux dlogdp
 
-if(choosefit==0) % Desativado. choosefit sÛ pode ser ==0 se a linha #70 for descomentada (input do usu·rio).
+if(choosefit==0) % Desativado. choosefit s√≥ pode ser ==0 se a linha #70 for descomentada (input do usu√°rio).
 
-% Dessa forma, o programa sempre seguir· o caminho "else"
+% Dessa forma, o programa sempre seguir√° o caminho "else"
 
 close; continue
 
@@ -458,7 +458,7 @@ if(abs(1-Nfit/Ndata)<abs(1-Nfitantes/Ndata)+0.02)
 
 ok=1; % Avalia se o ajuste com 2 modas ficou bem melhor do que antes
 
-else % Sen„o, volta ao ajuste com 3 modas e pergunta o que fazer
+else % Sen√£o, volta ao ajuste com 3 modas e pergunta o que fazer
 
 disp('*** Tryed 2 modes fitting (Nucleation and Aitken superposed), but 3 modes looks better')
 
@@ -660,7 +660,7 @@ if(abs(1-Nfit/Ndata)<abs(1-Nfitantes/Ndata)+0.01)
 
 ok=1; % Avalia se o ajuste com 1 moda ficou bem melhor do que antes
 
-else % Sen„o, volta ao ajuste com 2 modas e prossegue
+else % Sen√£o, volta ao ajuste com 2 modas e prossegue
 
 disp('*** Tryed 1 mode fitting, but 2 modes is better')
 
@@ -1570,13 +1570,13 @@ fits3modes(:,16)=nanmean(fitsnew(:,21:22),2);
 
 fits3modes(:,17:23)=fitsnew(:,23:29);
 
-% Preenchendo com NaNs a ausÍncia de amostra
+% Preenchendo com NaNs a aus√™ncia de amostra
 
 fits3modes(fits3modes(:,22)==0,8:23)=NaN;
 
 % Preenchendo com NaNs a moda de Aitken quando Naitken=0
 
-% (isto sÛ acontece pq nansum([nan nan])=0 ao invÈs de nan)
+% (isto s√≥ acontece pq nansum([nan nan])=0 ao inv√©s de nan)
 
 length(find(fits3modes(:,9)==0))/length(fitsnew)
 
@@ -1584,7 +1584,7 @@ fits3modes(fits3modes(:,9)==0,9)=NaN;
 
 % Preenchendo com NaNs a moda de accum quando Naccum=0
 
-% (isto sÛ acontece pq nansum([nan nan])=0 ao invÈs de nan)
+% (isto s√≥ acontece pq nansum([nan nan])=0 ao inv√©s de nan)
 
 length(find(fits3modes(:,10)==0))/length(fitsnew)
 
@@ -1614,9 +1614,9 @@ modsnew_table(:, 1:7) = [];
 
 % Read the CSV file datetime
 
-dates = readtable('E:\totais\doutorado\fspindex_mergedfsp.csv');
+dates = readtable('E:\totais\txts_smps\saidas\OUTPUT\index_merged429.4.csv');
 
-dates = datetime(dates{:, 1}, 'InputFormat', 'dd/MM/yyyy HH:mm');  % Supondo que a data est· na primeira coluna
+dates = datetime(dates{:, 1}, 'InputFormat', 'dd/MM/yyyy HH:mm');  % Supondo que a data est√° na primeira coluna
 
 modsnew_table = [table(dates, 'VariableNames', {'Date'}), modsnew_table];
 
@@ -1662,37 +1662,37 @@ modsnew_table.Properties.VariableDescriptions = {
 
 'Data e hora',
 
-'ConcentraÁ„o Moda de NucleaÁ„o',
+'Concentra√ß√£o Moda de Nuclea√ß√£o',
 
-'ConcentraÁ„o Moda de Aitken',
+'Concentra√ß√£o Moda de Aitken',
 
-'ConcentraÁ„o Moda de AcumulaÁ„o',
+'Concentra√ß√£o Moda de Acumula√ß√£o',
 
-'GMD Moda de NucleaÁ„o',
+'GMD Moda de Nuclea√ß√£o',
 
 'GMD Moda de Aitken',
 
-'GMD Moda de AcumulaÁ„o',
+'GMD Moda de Acumula√ß√£o',
 
-'GStd Moda de NucleaÁ„o',
+'GStd Moda de Nuclea√ß√£o',
 
 'GStd Moda de Aitken',
 
-'GStd Moda de AcumulaÁ„o',
+'GStd Moda de Acumula√ß√£o',
 
 'Soma dos quadrados dos erros',
 
-'Coeficiente de determinaÁ„o',
+'Coeficiente de determina√ß√£o',
 
 'Graus de liberdade',
 
-'Coeficiente de determinaÁ„o ajustado',
+'Coeficiente de determina√ß√£o ajustado',
 
-'Erro quadr·tico mÈdio',
+'Erro quadr√°tico m√©dio',
 
-'ConcentraÁ„o total observada',
+'Concentra√ß√£o total observada',
 
-'ConcentraÁ„o total ajustada'
+'Concentra√ß√£o total ajustada'
 
 };
 
